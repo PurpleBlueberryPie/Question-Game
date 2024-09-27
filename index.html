@@ -89,6 +89,7 @@
             <button class="emoji-button" data-type="time">⏱️</button>
             <button class="emoji-button" data-type="fire">🔥</button>
             <button class="emoji-button" data-type="heart">❤️</button>
+            <button class="emoji-button" data-type="family">👪</button>
         </div>
         <div class="card">
             <div class="card-front"></div>
@@ -269,6 +270,49 @@
             "If you could change one choice from your past, how do you think your life would be different today?"
         ];
 
+         const familyQuestions = [
+            "What was your relationship with your parents like growing up?",
+            "Do you feel closer to one parent than the other? Why?",
+            "How did your family handle conflict when you were a child?",
+            "What’s the biggest challenge you’ve faced in your family?",
+            "Is there something you wish you could change about the way you were raised?",
+            "How did your family express love and affection when you were growing up?",
+            "Are there any family traditions you found frustrating or difficult to be part of?",
+            "Was there a time when you felt unsupported by your family? How did that affect you?",
+            "How do you feel about the way your parents communicated with you as a child?",
+            "What’s a family issue you’ve never fully processed or talked about?",
+            "Have you ever felt misunderstood by your family? In what way?",
+            "What kind of role did you take on in your family? (e.g., peacemaker, caretaker, rebel)",
+            "Is there a family relationship that you find particularly complicated? Why?",
+            "What’s something about your family that you’ve struggled to accept?",
+            "How does your family typically deal with difficult emotions, like sadness or anger?",
+            "What’s one thing you’ve always wished your family did differently?",
+            "Do you feel like you can be your true self around your family?",
+            "Has there ever been a family member who caused you pain? How did that impact you?",
+            "What’s the most challenging family situation you’ve had to navigate?",
+            "How do you feel about the level of closeness and communication in your family?",
+            "Is there a time you felt like your family didn’t prioritize your needs?",
+            "What’s a family expectation or pressure that you’ve struggled with?",
+            "How did your family react when you faced difficulties or failures?",
+            "What’s one thing you admire about the way your family handles tough times?",
+            "Have you ever had to set boundaries with a family member? How did that go?",
+            "Is there a family dynamic that you’re afraid of replicating in our relationship?",
+            "How did your family handle major life changes, like moving or losing a loved one?",
+            "Do you feel like your family’s values align with yours today? Why or why not?",
+            "What’s something you’ve never shared with your family but wish you could?",
+            "Are there any unresolved conflicts or tensions in your family that weigh on you?",
+            "How do you feel about the way your family handles mental health or emotional struggles?",
+            "What’s a difficult lesson you’ve learned from your family?",
+            "Was there a moment you realized your family wasn’t perfect? How did that affect you?",
+            "How do you think your family views you, and does it align with how you see yourself?",
+            "What’s the most positive and the most challenging part of your relationship with your parents?",
+            "How do you think your family’s approach to conflict has shaped the way you handle it today?",
+            "Are there any family relationships you feel conflicted about, but can’t fully explain why?",
+            "What’s something about your family’s communication style that frustrates you?",
+            "Do you feel like your family truly knows you, or are there parts of you they don’t understand?",
+            "What’s one thing you hope to do differently from your family if/when you have kids?"
+         ];
+
         const card = document.querySelector('.card');
         const cardBack = document.querySelector('.card-back');
         const emojiButtons = document.querySelectorAll('.emoji-button');
@@ -296,6 +340,10 @@
                     card.style.backgroundColor = 'grey';
                     cardBack.style.color = '#FFFFFF';
                     break;
+                case 'family':
+                    card.style.backgroundColor = '#FDFD96';
+                    cardBack.style.color = '#FFFFFF';
+                    break;
                 default:
                     card.style.backgroundColor = 'black';
                     cardBack.style.color = 'white';
@@ -315,6 +363,9 @@
                         break;
                     case 'time':
                         currentQuestions = pastQuestions;
+                        break;
+                    case 'family':
+                        currentQuestions = familyQuestions;
                         break;
                 }
                 shuffleArray(currentQuestions);
