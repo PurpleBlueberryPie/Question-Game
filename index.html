@@ -89,17 +89,12 @@
             <button class="emoji-button" data-type="time">⏱️</button>
             <button class="emoji-button" data-type="fire">🔥</button>
             <button class="emoji-button" data-type="heart">❤️</button>
-            <button class="emoji-button" data-type="family">👪</button>
+            <button class="emoji-button" data-type="family">👪</button>            
+            <button class="emoji-button" data-type="self">👀</button>
         </div>
         <div class="card">
             <div class="card-front"></div>
             <div class="card-back"></div>
-        </div>
-        <div class="emoji-buttons">
-            <button class="emoji-button" data-type="time">⏱️</button>
-            <button class="emoji-button" data-type="fire">🔥</button>
-            <button class="emoji-button" data-type="heart">❤️</button>
-            <button class="emoji-button" data-type="family">👪</button>
         </div>
     </div>
     <div class="disclaimer">Play at your own risk</div>
@@ -319,6 +314,28 @@
             "What’s one thing you hope to do differently from your family if/when you have kids?"
          ];
 
+        const selfQuestions = [
+            "Where’s a place that always makes you happy?",
+            "What’s one personality trait you think you can’t change? Why do you think that is?",
+            "Name three bad habits you have—do you want to get rid of them?",
+            "What do you often think about when you’re alone?",
+            "How do you make yourself happy when you need a pick-me-up?",
+            "Have you ever made a promise to yourself? Did you keep it?",
+            "Would you rather be hated or forgotten?",
+            "What’s your guilty pleasure—something you enjoy even though it might not be the best for you?",
+            "What’s one thing people often misunderstand about you?",
+            "Name a few small things that always make you smile.",
+            "What’s a topic you love talking about?",
+            "How can someone calm you down when you’re upset?",
+            "Who is the most important person in your life right now?",
+            "When you’re in a bad mood, do you prefer being alone or having someone cheer you up?",
+            "What are five things you always take with you when you leave the house?",
+            "Tell me about the best birthday you’ve ever had.",
+            "What’s your weirdest talent?",
+            "Who’s the first person you turn to when you’re having a tough time?"
+        ];
+
+
         const card = document.querySelector('.card');
         const cardBack = document.querySelector('.card-back');
         const emojiButtons = document.querySelectorAll('.emoji-button');
@@ -350,6 +367,10 @@
                     card.style.backgroundColor = '#FDFD96';
                     cardBack.style.color = '#000000';
                     break;
+                case 'self':
+                    card.style.backgroundColor = '#9dff8a';
+                    cardBack.style.color = '#eeffeb';
+                    break;
                 default:
                     card.style.backgroundColor = '#000000';
                     cardBack.style.color = 'white';
@@ -371,6 +392,9 @@
                         currentQuestions = pastQuestions;
                         break;
                     case 'family':
+                        currentQuestions = familyQuestions;
+                        break;
+                    case 'self':
                         currentQuestions = familyQuestions;
                         break;
                 }
