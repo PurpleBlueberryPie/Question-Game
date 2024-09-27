@@ -6,7 +6,7 @@
     <title>The Question Game</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Georgia, serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -99,35 +99,174 @@
 
     <script>
         const normalQuestions = [
-            "What's your favorite book?",
-            "If you could travel anywhere, where would you go?",
-            "What's the best piece of advice you've ever received?",
-            "What's your biggest fear?",
-            "If you could have dinner with any historical figure, who would it be?"
+            "What's the weirdest thing you've ever eaten?",
+            "If you could live in any fictional world, where would it be?",
+            "What is a skill you have that most people don’t know about?",
+            "If you could instantly master any talent or skill, what would it be?",
+            "What’s your favorite memory with everyone in this group?",
+            "If you could switch lives with anyone here for a day, who would it be and why?",
+            "What’s the most spontaneous thing you’ve ever done?",
+            "If you could travel anywhere in the world together as a group, where would it be?",
+            "What’s one thing you’ve always wanted to ask someone here but never did?",
+            "What’s the most awkward moment you’ve had in public?",
+            "If you could have dinner with three famous people, dead or alive, who would they be?",
+            "What’s something you’ve always wanted to try, but haven’t yet?",
+            "If you could relive one day from your past, which day would it be and why?",
+            "What’s the funniest thing that’s happened to you in the last year?",
+            "If you could only eat one type of food for the rest of your life, what would it be?",
+            "What’s one thing that always makes you laugh, no matter what?",
+            "If you could describe this group in one word, what would it be?",
+            "What’s the most random fact you know?",
+            "What’s one thing you love about each person here?",
+            "If you could trade lives with any fictional character, who would it be?",
+            "What’s a common misconception people have about you?",
+            "What’s the best advice you’ve ever received?",
+            "If you had to live in another decade, which would you choose and why?",
+            "What’s your guilty pleasure TV show or movie?",
+            "What’s a dream job you wanted when you were a kid?",
+            "What’s one random act of kindness someone has done for you?",
+            "If you could time travel, would you go to the past or the future? Why?",
+            "What’s the most meaningful gift you’ve ever received?",
+            "If you could instantly learn one language, what would it be?",
+            "What’s the most embarrassing thing that’s ever happened to you?",
+            "If you could spend 24 hours with anyone, who would it be and why?",
+            "What’s something you’ve learned recently that surprised you?",
+            "If you could create a new holiday, what would it be about?",
+            "What’s a small thing in life that always makes you smile?",
+            "What’s a hobby or activity you’ve always wanted to pick up?",
+            "What’s your proudest accomplishment so far?",
+            "What’s one thing you admire about the person sitting next to you?",
+            "If your life had a theme song, what would it be?",
+            "What’s the best compliment you’ve ever received?",
+            "What’s something that makes you feel really nostalgic?",
+            "If you could bring one fictional character to life, who would it be?",
+            "What’s the most challenging thing you’ve ever done?",
+            "What’s one thing on your bucket list you hope to cross off soon?",
+            "If you could spend a day in someone else’s shoes, whose would it be and why?",
+            "What’s your go-to karaoke song?",
+            "If you could host a talk show, who would be your first guest?",
+            "What’s your favorite way to spend a weekend?",
+            "If you could redo one decision in your life, what would it be?",
+            "What’s the weirdest dream you’ve ever had?",
+            "What’s a movie or book that changed your perspective on something?",
+            "If you could give your younger self one piece of advice, what would it be?"
         ];
 
         const spicyQuestions = [
-            "What's the most daring thing you've ever done?",
-            "What's a secret you've never told anyone?",
-            "What's the craziest thing you've done on a dare?",
-            "What's your biggest regret?",
-            "If you could change one decision in your life, what would it be?"
+            "If you could only touch one part of your partner’s body for the rest of the night, what would it be?",
+            "What’s the most unexpected place you’ve ever felt turned on?",
+            "If we were alone right now, what would you do to me?",
+            "What’s something you’ve always wanted to try in bed but haven’t yet?",
+            "Do you prefer being in control or letting someone else take charge in the bedroom?",
+            "What’s your favorite type of foreplay, and how long do you like it to last?",
+            "What’s the naughtiest thought you’ve had about me today?",
+            "If you could have a secret room designed for one thing, what would it be used for?",
+            "What’s the most daring thing you’ve done with someone in public?",
+            "If I could do one thing to you right now, what would you want it to be?",
+            "Describe your ideal make-out session in three words.",
+            "What’s your favorite place to be kissed, and why?",
+            "What’s the sexiest thing you’ve ever imagined doing with someone?",
+            "If I had 60 seconds to turn you on, what should I do?",
+            "What’s your favorite role-play fantasy, and who would you be?",
+            "What’s your favorite position and why?",
+            "What’s your biggest turn-on that you don’t think many people know about?",
+            "If we could only use our hands tonight, how would you want me to touch you?",
+            "What’s the most intimate moment you’ve ever had in bed?",
+            "How adventurous are you in the bedroom? Describe your comfort zone.",
+            "What’s the most seductive thing someone has ever said to you?",
+            "If you could relive one spicy moment from your past, what would it be?",
+            "What do you think is the sexiest part of my body?",
+            "Have you ever had a fantasy about me? If yes, what was it?",
+            "How would you feel about trying something new and wild together?",
+            "What’s your favorite thing for your partner to wear to bed?",
+            "What’s the most thrilling risky thing you’ve done during a romantic encounter?",
+            "What kind of dirty talk gets you the most excited?",
+            "If I wanted to tease you for hours, how should I do it?",
+            "What’s the most erotic way someone’s ever touched you?",
+            "Have you ever wanted to have a secret code for something naughty in public?",
+            "What’s the most satisfying thing I could do for you in the bedroom?",
+            "If we were alone in a dark room, what’s the first thing you would do?",
+            "How do you like to be kissed when things are getting hot?",
+            "If you had to choose between a long, sensual massage or an intense make-out session, which would you pick?",
+            "What’s the dirtiest thought you’ve had about me?"
         ];
 
-        const relationshipQuestions = [
-            "What's your idea of a perfect date?",
-            "What's the most important quality in a partner?",
-            "Have you ever been in love? How did it feel?",
-            "What's your love language?",
-            "What's the biggest lesson you've learned from past relationships?"
+        const relationshipQuestions = [            
+            "Given the choice of anyone in the world, whom would you want as a dinner guest?",
+            "Would you like to be famous? In what way?",
+            "Before making a telephone call, do you ever rehearse what you are going to say? Why?",
+            "What would constitute a 'perfect' day for you?",
+            "When did you last sing to yourself? To someone else?",
+            "If you were able to live to the age of 90 and retain either the mind or body of a 30-year-old for the last 60 years of your life, which would you want?",
+            "Do you have a secret hunch about how you will die?",
+            "Name three things you and your partner appear to have in common.",
+            "For what in your life do you feel most grateful?",
+            "If you could change anything about the way you were raised, what would it be?",
+            "Take four minutes and tell your partner your life story in as much detail as possible.",
+            "If you could wake up tomorrow having gained any one quality or ability, what would it be?",
+            "If a crystal ball could tell you the truth about yourself, your life, the future, or anything else, what would you want to know?",
+            "Is there something that you've dreamed of doing for a long time? Why haven't you done it?",
+            "What is the greatest accomplishment of your life?",
+            "What do you value most in a friendship?",
+            "What is your most treasured memory?",
+            "What is your most terrible memory?",
+            "If you knew that in one year you would die suddenly, would you change anything about the way you are now living? Why?",
+            "What does friendship mean to you?",
+            "What roles do love and affection play in your life?",
+            "Alternate sharing something you consider a positive characteristic of your partner. Share a total of five items.",
+            "How close and warm is your family? Do you feel your childhood was happier than most other people's?",
+            "How do you feel about your relationship with your mother?",
+            "Make three true 'we' statements each. For instance, 'We are both in this room feeling...'",
+            "Complete this sentence: 'I wish I had someone with whom I could share...'",
+            "If you were going to become a close friend with your partner, please share what would be important for them to know.",
+            "Tell your partner what you like about them; be very honest this time, saying things that you might not say to someone you've just met.",
+            "Share an embarrassing moment in your life.",
+            "When did you last cry in front of another person? By yourself?",
+            "Tell your partner something that you like about them already.",
+            "What, if anything, is too serious to be joked about?",
+            "If you were to die this evening with no opportunity to communicate with anyone, what would you most regret not having told someone? Why haven't you told them yet?",
+            "Your house, containing everything you own, catches fire. After saving your loved ones and pets, you have time to safely make a final dash to save any one item. What would it be? Why?",
+            "Of all the people in your family, whose death would you find most disturbing? Why?",
+            "Share a personal problem and ask your partner's advice on how they might handle it. Then, ask your partner to reflect on how you seem to be feeling about the problem you have chosen."
         ];
 
         const pastQuestions = [
-            "What's a moment from your past you wish you could relive?",
-            "Who was your childhood hero and why?",
-            "What's your earliest childhood memory?",
-            "What's something you miss from your childhood?",
-            "If you could go back in time and give your younger self advice, what would it be?"
+            "What’s one decision from your past you wish you could change?",
+            "What’s something from your childhood that you wish you could relive?",
+            "Is there a moment from your past that you wish you had appreciated more?",
+            "What’s a past regret that taught you the most valuable lesson?",
+            "If you could go back in time and give yourself advice at 18, what would you say?",
+            "What’s a memory that always makes you smile, even if it’s bittersweet?",
+            "Was there a time you made a mistake that shaped who you are today?",
+            "Looking back, is there something you wish you had been more brave about?",
+            "What’s a risk you didn’t take in the past that you now wish you had?",
+            "Is there something from your past you haven’t forgiven yourself for? How does it affect you now?",
+            "What’s the most difficult thing you’ve had to overcome in life so far?",
+            "If you could go back to any age in your life, which would it be and why?",
+            "What’s something you used to dream about as a child that still feels important to you today?",
+            "Is there someone from your past you wish you had been kinder to?",
+            "What’s something you wish you could tell your younger self about the person you’ve become?",
+            "What’s a past relationship or friendship you wish you had handled differently?",
+            "What’s a missed opportunity from your past that still crosses your mind?",
+            "What’s one thing from your past you’ll never forget because it changed your life?",
+            "If you could apologize to someone from your past, who would it be and why?",
+            "What’s a memory that always brings up a feeling of regret for you?",
+            "What’s something you used to value but no longer do, and what changed?",
+            "If you could have a do-over for one event in your life, what would it be?",
+            "Looking back, what’s one thing you wish you had prioritized more in your life?",
+            "What’s a dream you had as a child that you’ve never fully pursued?",
+            "Is there a moment from your past that helped shape your hope for the future?",
+            "What’s something you wish you could tell someone who is no longer in your life?",
+            "What’s one decision you made that set your life on a different path than you expected?",
+            "What’s a time in your life when you felt lost, and how did you find your way back?",
+            "What’s the most significant thing you’ve learned from a past failure?",
+            "Is there a piece of advice you received in the past that changed your outlook on life?",
+            "What’s something you wish you could go back and experience with the wisdom you have now?",
+            "If you could relive one perfect day from your past, what would it be?",
+            "What’s something from your past that you were once embarrassed about but now embrace?",
+            "Is there something you wish you had said to someone before it was too late?",
+            "What’s one thing you never realized was important until you looked back on it?",
+            "If you could change one choice from your past, how do you think your life would be different today?"
         ];
 
         const card = document.querySelector('.card');
@@ -147,7 +286,7 @@
             switch(type) {
                 case 'fire':
                     card.style.backgroundColor = 'red';
-                    cardBack.style.color = 'white';
+                    cardBack.style.color = '#FFFFFF';
                     break;
                 case 'heart':
                     card.style.backgroundColor = '#FFB6C1'; // pastel pink
@@ -155,7 +294,7 @@
                     break;
                 case 'time':
                     card.style.backgroundColor = 'grey';
-                    cardBack.style.color = 'black';
+                    cardBack.style.color = '#FFFFFF';
                     break;
                 default:
                     card.style.backgroundColor = 'black';
