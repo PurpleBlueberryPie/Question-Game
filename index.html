@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Question Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .game-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            flex-grow: 1;
+        }
+        .emoji-buttons {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+        }
+        .emoji-button {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .card {
+            width: 80%;
+            max-width: 300px;
+            aspect-ratio: 9 / 16;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        .disclaimer {
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Question Game</h1>
+    <div class="game-container">
+        <div class="emoji-buttons">
+            <button class="emoji-button" data-type="fire">🔥</button>
+            <button class="emoji-button" data-type="heart">❤️</button>
+            <button class="emoji-button" data-type="time">⏱️</button>
+        </div>
+        <div class="card">
+            <div class="card-front"></div>
+            <div class="card-back"></div>
+        </div>
+    </div>
+    <div class="disclaimer">Play at your own risk</div>
+
+    <script>
+        const normalQuestions = [
+            "What's your favorite book?",
+            "If you could travel anywhere, where would you go?",
+            "What's the best piece of advice you've ever received?",
+            "What's your biggest fear?",
+            "If you could have dinner with any historical figure, who would it be?"
+        ];
+
+        const spicyQuestions = [
+            "What's the most daring thing you've ever done?",
+            "What's a secret you've never told anyone?",
+            "What's the craziest thing you've done on a dare?",
+            "What's your biggest regret?",
+            "If you could change one decision in your life, what would it be?"
+        ];
+
+        const relationshipQuestions = [
+            "What's your idea of a perfect date?",
+            "What's the most important quality in a partner?",
+            "Have you ever been in love? How did it feel?",
+            "What's your love language?",
+            "What's the biggest lesson you've learned from past relationships?"
+        ];
+
+        const pastQuestions = [
+            "What's a moment from your past you wish you could relive?",
+            "Who was your childhood hero and why?",
+            "What's your earliest childhood memory?",
+            "What's something you miss from your childhood?",
+            "If you could go back in time and give your younger self advice, what would it be?"
+        ];
+
+        const card = document.querySelector('.card');
+        const cardBack = document.querySelector('.card-back');
+        const emojiButtons = document.querySelectorAll('.emoji-button');
+        let currentQuestions = normalQuestions;
+        let isFlipped = false;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function setCardStyle(type) {
+            switch(type) {
+                case 'fire':
+                    card.style.backgroundColor = 'red';
+                    cardBack.style.color = 'black';
+                    break;
+                case 'heart':
+                    card.style.backgroundColor = '#FFB6C1'; // pastel pink
+                    cardBack.style.color = 'white';
+                    break;
+                case 'time':
+                    card.style.backgroundColor = 'grey';
+                    cardBack.style.color = 'black';
+                    break;
+                default:
+                    card.style.backgroundColor = 'black';
+                    cardBack.style.color = 'white';
+            }
+        }
+
+        emojiButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const type = button.getAttribute('data-type');
+                setCardStyle(type);
+                switch(type) {
+                    case 'fire':
+                        currentQuestions = spicyQuestions;
+                        break;
+                    case 'heart':
+                        currentQuestions = relationshipQuestions;
+                        break;
+                    case 'time':
+                        currentQuestions = pastQuestions;
+                        break;
+                }
+                shuffleArray(currentQuestions);
+                flipCard();
+            });
+        });
+
+        function flipCard() {
+            if (!isFlipped) {
+                card.style.transform = 'rotateY(180deg)';
+                cardBack.textContent = currentQuestions[0];
+                isFlipped = true;
+            } else {
+                card.style.transform = 'rotateY(0deg)';
+                setTimeout(() => {
+                    currentQuestions.push(currentQuestions.shift());
+                    card.style.transform = 'rotateY(180deg)';
+                    cardBack.textContent = currentQuestions[0];
+                }, 300);
+            }
+        }
+
+        card.addEventListener('click', () => {
+            if (currentQuestions !== normalQuestions) {
+                currentQuestions = normalQuestions;
+                setCardStyle('default');
+            }
+            flipCard();
+        });
+
+        shuffleArray(normalQuestions);
+        shuffleArray(spicyQuestions);
+        shuffleArray(relationshipQuestions);
+        shuffleArray(pastQuestions);
+    </script>
+</body>
+</html>
